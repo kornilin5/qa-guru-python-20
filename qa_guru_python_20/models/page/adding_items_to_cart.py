@@ -36,8 +36,8 @@ class AddingItemsToCart:
         requests.post(add_to_cart_url, cookies={"NOPCOMMERCE.AUTH": cookie})
 
     def api_log(self, **kwargs):
-        result = requests.post(
-            f'{DOMAIN_URL} + "addproducttocart/catalog/31/1/1"', **kwargs)
+        result = requests.post(f'{DOMAIN_URL}addproducttocart/catalog/31/1/1',
+                               **kwargs)
 
         allure.attach(body=result.request.url,
                       name="Request url",
