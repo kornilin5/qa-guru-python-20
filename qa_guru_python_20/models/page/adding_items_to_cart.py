@@ -22,8 +22,8 @@ class AddingItemsToCart:
         browser.open(DOMAIN_URL + "login")
 
     def log_in(self):
-        cookie = self.response.cookies.get("NOPCOMMERCE.AUTH")
         self.open()
+        cookie = self.response.cookies.get("NOPCOMMERCE.AUTH")
         browser.driver.add_cookie({
             "name": "NOPCOMMERCE.AUTH",
             "value": cookie

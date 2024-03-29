@@ -1,6 +1,7 @@
 from selene import browser, have
 from tests.conftest import DOMAIN_URL, LOGIN, PASSWORD
 import requests
+from time import sleep
 
 
 class AuthorizationPages:
@@ -9,6 +10,7 @@ class AuthorizationPages:
         browser.open(DOMAIN_URL)
 
     def log_in(self):
+        self.open()
         response = requests.post(url=DOMAIN_URL + "login",
                                  data={
                                      "Email": LOGIN,
@@ -16,7 +18,6 @@ class AuthorizationPages:
                                  },
                                  allow_redirects=False)
         cookie = response.cookies.get("NOPCOMMERCE.AUTH")
-        self.open()
         browser.driver.add_cookie({
             "name": "NOPCOMMERCE.AUTH",
             "value": cookie

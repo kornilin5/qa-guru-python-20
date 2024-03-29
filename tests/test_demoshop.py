@@ -19,7 +19,7 @@ def test_add_to_cart_api():
         add_item.open()
     with step("Fill login form"):
         add_item.log_in()
-    with step("add item to cart"):
+    with step("Add item to cart"):
         add_item.to_cart()
     with step("logging response"):
         data_product = {"addtocart_31.EnteredQuantity": 1}
