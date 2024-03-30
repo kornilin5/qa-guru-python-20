@@ -20,7 +20,28 @@ def test_add_to_cart_api():
     with step("Fill login form"):
         add_item.log_in()
     with step("Add item to cart"):
-        add_item.to_cart()
+        add_item.to_cart('addproducttocart/catalog/31/1/1')
+    with step('Should item in cart'):
+        add_item.should_item_in_cart()
     with step("logging response"):
         data_product = {"addtocart_31.EnteredQuantity": 1}
-        add_item.api_log(data=data_product)
+        add_item.api_log('addproducttocart/catalog/31/1/1', data=data_product)
+    with step('delete item from cart'):
+        add_item.delete_from_cart()
+
+
+def test_add_phones_to_cart_api():
+
+    with step("Open login page"):
+        add_item.open()
+    with step("Fill login form"):
+        add_item.log_in()
+    with step("Add item to cart"):
+        add_item.to_cart('addproducttocart/catalog/43/1/1')
+    with step('Should item in cart'):
+        add_item.should_item_in_cart()
+    with step("logging response"):
+        data_product = {'addtocart_43.EnteredQuantity': 1}
+        add_item.api_log('addproducttocart/catalog/43/1/1', data=data_product)
+    with step("Delete item from cart"):
+        add_item.delete_from_cart()

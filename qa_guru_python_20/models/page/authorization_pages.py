@@ -1,7 +1,6 @@
 from selene import browser, have
 from tests.conftest import DOMAIN_URL, LOGIN, PASSWORD
 import requests
-from time import sleep
 
 
 class AuthorizationPages:
